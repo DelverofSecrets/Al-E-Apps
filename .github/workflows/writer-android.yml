@@ -22,6 +22,8 @@ jobs:
         run: |
           cat android-writer-source.b64.part* | base64 -d > writer.tar.xz
           tar -xJf writer.tar.xz
+          sed -i 's/import android\.app\.PrintManager;/import android.print.PrintManager;/' AletheianWriter-Android/app/src/main/java/org/aletheian/writer/MainActivity.java
+          sed -i 's/setImmersive(/setWriterImmersive(/g' AletheianWriter-Android/app/src/main/java/org/aletheian/writer/MainActivity.java
       - name: Build debug APK
         run: gradle :app:assembleDebug --stacktrace
         working-directory: AletheianWriter-Android
