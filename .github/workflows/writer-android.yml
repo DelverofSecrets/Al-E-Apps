@@ -3,7 +3,9 @@ name: Build Aletheian Writer Android
 on:
   push:
     branches: [writer-android-build]
-    paths: ['android-writer-source.b64.part12']
+    paths:
+      - 'android-writer-source.b64.part12'
+      - '.github/workflows/writer-android.yml'
 
 jobs:
   build:
